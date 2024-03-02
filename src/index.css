@@ -21,7 +21,7 @@
 }
 
 /* League Gothic Classes */
-.font-leag-title {
+.font-leag-subtitle {
   font-family: "League Gothic", sans-serif;
   font-size: 7.5rem; /* 120px */
   font-weight: 400;
@@ -30,11 +30,11 @@
   text-align: left;
 }
 
-.font-leag-subtitle {
+.font-leag-title {
   font-family: "League Gothic", sans-serif;
   font-size: 15rem; /* 240px */
   font-weight: 400;
-  line-height: 18rem; /* 288px */
+  line-height: 12rem; /* 288px */
   letter-spacing: 0em;
   text-align: left;
 }
@@ -47,6 +47,9 @@
   line-height: 1.5625rem; /* 25px */
   letter-spacing: 0em;
   text-align: left;
+}
+.relative {
+  position: relative;
 }
 
 .font-man-large {
@@ -186,4 +189,342 @@
 
 .content-around {
   align-content: space-around;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Main classes */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.36rem;
+  letter-spacing: 0em;
+  text-align: left;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  transition: color ease-in-out 0.3s;
+  color: var(--text-color);
+}
+
+.nav-link:hover {
+  text-transform: uppercase;
+  transition: color ease-in-out 0.3s;
+  color: #cecece;
+}
+.cta-btn {
+  background-color: var(--primary-color);
+  padding: 0.8rem 1.2rem;
+  color: var(--background-color);
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  transition: transform ease-in-out 0.5s;
+  &:hover span,
+  &:hover .icon {
+    transform: translateY(-2px);
+  }
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+
+.mx-2 {
+  margin-inline: 1rem;
+}
+.mx-3 {
+  margin-inline: 2rem;
+}
+.mt-4 {
+  margin-top: 4rem;
+}
+.px-5 {
+  padding-inline: 5rem;
+}
+.pl-16 {
+  padding-left: 16rem;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.my-3 {
+  margin-block: 1.5rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.h-70vh {
+  height: 70vh;
+}
+
+.circle {
+  position: relative;
+  width: 20.18rem;
+  height: 20.18rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: url("./assets/images/profilePicture.png");
+  background-size: cover;
+  filter: grayscale(1.5);
+}
+
+.text {
+  position: absolute;
+  color: var(--background-color);
+  width: 100%;
+  height: 100%;
+  animation: rotateText 10s linear infinite;
+  & span {
+    position: absolute;
+    left: 50%;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transform-origin: 0 9rem;
+    top: -40%;
+  }
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-circle-container {
+  position: absolute;
+  left: 50%;
+}
+
+.sub-text-intro {
+  margin-top: auto;
+}
+
+.icon {
+  width: 1rem;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+.box {
+  font-size: 32px;
+}
+.content {
+  position: relative;
+  & .box {
+    transform: scale(1);
+    transition: 0.6s ease all;
+  }
+  & .example {
+    left: 10%;
+    top: 50%;
+
+    position: absolute;
+    transform: translateY(-50%) perspective(800px) scale(0.4) translateX(600px);
+    z-index: 100;
+    opacity: 0;
+    transition: 0.6s ease all;
+  }
+  &:hover {
+    & .example {
+      top: 50%;
+      transform: translateY(-50%) perspective(800px) rotateY(-10deg) scale(1.2)
+        translateX(50px) rotateX(-20deg) rotatez(-20deg) rotateY(15deg)
+        translateZ(100px);
+      opacity: 1;
+    }
+    & .box {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.content--left {
+  position: relative;
+  & .box {
+    transform: scale(1);
+    transition: 0.6s ease all;
+  }
+  & .example {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%) perspective(800px) scale(0.4) rotateZ(-10deg)
+      translateX(0px);
+    z-index: 100;
+    opacity: 0;
+    transition: 0.6s ease all;
+  }
+  &:hover {
+    & .example {
+      right: 50%;
+      top: 50%;
+      transform: translateY(-50%) perspective(800px) rotateY(-20deg) scale(1.2)
+        translateX(120px) rotatez(20deg) rotateY(10deg);
+      opacity: 1;
+    }
+    & .box {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.project-wrapper {
+  margin-left: 25rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-0_5 {
+  margin-top: 0.5rem;
+}
+
+.project-list-icon {
+  position: absolute;
+  right: 2rem;
+}
+.svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.w-25per {
+  width: 30%;
+}
+
+.about-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: justify;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+.text-center {
+  text-align: center;
+}
+.footer {
+  min-height: 70vh;
+}
+
+.footer-cta {
+  font-family: League Gothic;
+  font-size: 10rem;
+  font-weight: 400;
+  line-height: 12rem;
+  letter-spacing: 0.01em;
+  margin-inline: auto;
+  width: fit-content;
+  transition: all ease-in 0.1s;
+  border-bottom: 1rem solid transparent;
+  &:hover {
+    color: var(--primary-color);
+    border-bottom: 1rem solid var(--primary-color);
+  }
+}
+
+.footer-social {
+  border-top: 1px solid var(--lighter-text);
+  border-bottom: 1px solid var(--lighter-text);
+  margin-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.py-3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.footer-last {
+  font-family: Manrope;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
 }
