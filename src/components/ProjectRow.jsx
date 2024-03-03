@@ -36,15 +36,20 @@ const ProjectRow = ({ name, description, image, index, isLast }) => {
       </div>
       <div
         style={{
-          width: "15rem",
+          width: "18rem",
           height: "15rem",
           borderRadius: "5%",
           overflow: "hidden",
-          background: `url(${image})`,
           backgroundSize: "cover",
         }}
         className="example"
-      ></div>
+      >
+        <img
+          style={{ width: "100%", height: "100%", backgroundSize: "cover" }}
+          src={image}
+          alt={name}
+        />
+      </div>
       <div className="project-list-icon">
         <Icon name="NorthEast" classes="text-dark svg" />
       </div>

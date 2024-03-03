@@ -11,19 +11,20 @@ const PROJECT_LISTS = [
   {
     name: "REVOLUTIONISING EXPENSE REIMBURSMENTS",
     description: "Product Design",
-    image: "./assets/images/reimbursement.png",
+    image:
+      "https://raw.githubusercontent.com/Briyani-monster/PortfolioWebsitePayal/master/src/assets/images/myCapitalReimbursment.png",
   },
   {
     name: "STREAMLINING VENDOR MANAGEMENT AND BILL PROCESSING",
     description: "Product Design",
     image:
-      "https://images.creativemarket.com/0.1.0/ps/5708027/910/923/m2/fpnw/wm1/full_moon_screenshot-.jpg?1547590227&s=7fae338bfef014b8847cbf176fb48270",
+      "https://raw.githubusercontent.com/Briyani-monster/PortfolioWebsitePayal/master/src/assets/images/vendor.png",
   },
   {
     name: "EMPOWRING INDIAN ARTISIANS",
     description: "Product Design ",
     image:
-      "https://assets.materialup.com/uploads/a5aa3151-8c04-4de7-bc71-b218344a537b/preview.png",
+      "https://raw.githubusercontent.com/Briyani-monster/PortfolioWebsitePayal/master/src/assets/images/empowringWomen.png",
   },
 ];
 const RESUME_LINK =
@@ -59,62 +60,99 @@ const SOCIAL_LINKS = [
   },
 ];
 function App() {
+  const ref = useRef();
   // animate on scroll initialization
   useEffect(() => {
     AOS.init();
+    const interBubble = ref.current;
+    let curX = 0;
+    let curY = 0;
+    let tgX = 0;
+    let tgY = 0;
+    if (interBubble) {
+      const handleMouseMove = (event) => {
+        tgX = event.clientX;
+        tgY = event.clientY;
+      };
+      function move() {
+        curX += (tgX - curX) / 20;
+        curY += (tgY - curY) / 20;
+
+        interBubble.style.transform = `translate(${Math.round(
+          curX
+        )}px, ${Math.round(curY)}px)`;
+        requestAnimationFrame(() => {
+          move();
+        });
+      }
+
+      window.addEventListener("mousemove", handleMouseMove);
+
+      move();
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    }
   }, []);
 
   return (
     <>
-      <section className="flex flex-row items-center justify-between mx-2">
-        <Navbar links={LINKS_CONFIG} />
-        <a className="cta-btn" target="_blank" href={RESUME_LINK}>
-          <span>Get in Touch</span>
-          <Icon classes={"icon"} name="NorthEast" />
-        </a>
-      </section>
-      <header
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        id="intro"
-        className=" title-name flex flex-row justify-between"
-      >
-        <div className="">
-          <h1 className="font-leag-title">PAYAL</h1>
-          <h1 className="font-leag-title pl-16">ANIL</h1>
-        </div>
-        <div className="flex flex-col items-end relative">
-          <div data-aos="zoom-in" className="profile-circle-container">
-            <div className="circle">
-              <div className="logo">
-                <div className="text">
-                  <p>
-                    {"Let’s work together • Let’s work together • Let’s work together • Let’s work together •"
-                      .split("")
-                      .map((item, index) => (
-                        <span
-                          style={{
-                            transform: `rotate(${index * 4.1}deg)`,
-                          }}
-                        >
-                          {item}
-                        </span>
-                      ))}
-                  </p>
-                </div>
-              </div>
+      <header id="intro">
+        <div class="text-container">
+          <section className="flex flex-row items-center justify-between mx-2">
+            <Navbar links={LINKS_CONFIG} />
+            <a className="cta-btn" target="_blank" href={RESUME_LINK}>
+              <span>Get in Touch</span>
+              <Icon classes={"icon"} name="NorthEast" />
+            </a>
+          </section>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            className="flex flex-row  items-end "
+          >
+            <div className="hero">
+              <p className="hero-hello">HELLO.</p>
+              <h1 className="font-leag-title">This is</h1>
+              <h1 className="font-leag-title">Payal Anil</h1>
             </div>
+            <p className="hero-p">
+              <span>Product Designer at Volopay </span>
+            </p>
+          </div>
+        </div>
+        <div class="gradient-bg title-name interactive flex flex-row justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="10"
+                  result="blur"
+                />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                  result="goo"
+                />
+                <feBlend in="SourceGraphic" in2="goo" />
+              </filter>
+            </defs>
+          </svg>
+          <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+            <div class="interactive" ref={ref}></div>
           </div>
         </div>
       </header>
-      <div data-aos="fade-up" className="" data-aos-duration="1000">
-        <p className="sub-text-intro">
-          On a mission to infuse every curve and line with meaning, creating
-          digital experiences that simplify, uplift, and nurture human
-          connection.
-        </p>
-      </div>
-      <section data-aos="fade-up" id="projects" className="pt-8 min-h-screen">
+
+      <section data-aos="fade-up" id="projects" className=" min-h-screen">
         <h1 className="font-leag-subtitle">PROJECTS</h1>
         <div className="project-wrapper mt-4 ">
           {PROJECT_LISTS?.map((project, index) => (
