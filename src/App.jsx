@@ -11,18 +11,21 @@ const PROJECT_LISTS = [
   {
     name: "REVOLUTIONISING EXPENSE REIMBURSMENTS",
     description: "Product Design",
+    link: "https://www.notion.so/payalanil/Revolutionising-expense-reimbursements-An-automated-solution-for-streamlined-processes-and-enhanced-a3988c28be024fb29e34a312cb6c23fc?pvs=4",
     image:
       "https://raw.githubusercontent.com/Briyani-monster/PortfolioWebsitePayal/master/src/assets/images/myCapitalReimbursment.png",
   },
   {
     name: "STREAMLINING VENDOR MANAGEMENT AND BILL PROCESSING",
     description: "Product Design",
+    link: " https://www.notion.so/payalanil/Streamlining-vendor-management-and-bill-processing-for-efficient-financial-operations-8acf74cfdb474a2a9668bf231139f3f3?pvs=4",
     image:
       "https://raw.githubusercontent.com/Briyani-monster/PortfolioWebsitePayal/master/src/assets/images/vendor.png",
   },
   {
     name: "EMPOWRING INDIAN ARTISIANS",
     description: "Product Design ",
+    link: "https://www.behance.net/gallery/156103311/Maharha-UXUI-Case-Study",
     image:
       "https://raw.githubusercontent.com/Briyani-monster/PortfolioWebsitePayal/master/src/assets/images/empowringWomen.png",
   },

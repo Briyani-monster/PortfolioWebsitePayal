@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import Icon from "./Icon";
-const ProjectRow = ({ name, description, image, index, isLast }) => {
+const ProjectRow = ({ name, description, image, index, isLast, link }) => {
   const [show, setShow] = useState(null);
   const itemRef = useRef(null);
 
@@ -28,12 +28,14 @@ const ProjectRow = ({ name, description, image, index, isLast }) => {
       className={`content${show ? `--${show}` : ""}`}
       // className="content--left"
     >
-      <div className="box flex ">
-        <div className="description">
-          <h1 className="font-man-large">{name}</h1>
-          <p className="font-man-normal text-light mt-1">{description}</p>
+      <a href={link} target="_blank">
+        <div className="box flex">
+          <div className="description">
+            <h1 className="font-man-large">{name}</h1>
+            <p className="font-man-normal text-light mt-1">{description}</p>
+          </div>
         </div>
-      </div>
+      </a>
       <div
         style={{
           width: "18rem",
@@ -44,11 +46,13 @@ const ProjectRow = ({ name, description, image, index, isLast }) => {
         }}
         className="example"
       >
-        <img
-          style={{ width: "100%", height: "100%", backgroundSize: "cover" }}
-          src={image}
-          alt={name}
-        />
+        <a href={link} target="_blank">
+          <img
+            style={{ width: "100%", height: "100%", backgroundSize: "cover" }}
+            src={image}
+            alt={name}
+          />
+        </a>
       </div>
       <div className="project-list-icon">
         <Icon name="NorthEast" classes="text-dark svg" />
