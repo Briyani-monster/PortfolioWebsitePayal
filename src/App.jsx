@@ -11,7 +11,7 @@ const PROJECT_LISTS = [
   {
     name: "REVOLUTIONISING EXPENSE REIMBURSMENTS",
     description: "Product Design",
-    image: "src/assets/images/reimbursement.png",
+    image: "https://postimg.cc/pmPSmNRV",
   },
   {
     name: "STREAMLINING VENDOR MANAGEMENT AND BILL PROCESSING",
