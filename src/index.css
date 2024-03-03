@@ -677,7 +677,6 @@ section {
   transition: all ease-in 0.1s;
   border-bottom: 1rem solid transparent;
   &:hover {
-    /* color: var(--primary-color); */
     border-bottom: 1rem solid var(--text-color);
   }
 }
