@@ -1,7 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import Icon from "./Icon";
-
-export const ProjectRow = ({ name, description, image, index, isLast }) => {
+const ProjectRow = ({ name, description, image, index, isLast }) => {
   const [show, setShow] = useState(null);
   const itemRef = useRef(null);
 
@@ -12,7 +11,7 @@ export const ProjectRow = ({ name, description, image, index, isLast }) => {
     <div
       ref={itemRef}
       onMouseMove={(e) => {
-        const mid = itemRef?.current.getBoundingClientRect()?.width / 2;
+        const mid = itemRef?.current.getBoundingClientRect()?.width / 1.1;
         console.log(mid, e.clientX >= mid, e.clientX);
         if (e.clientX >= mid) setShow("left");
         else setShow(null);
@@ -21,7 +20,7 @@ export const ProjectRow = ({ name, description, image, index, isLast }) => {
       style={{
         display: "flex",
         borderTop: "1px solid #838485",
-        padding: "3rem 0",
+        padding: "3.75rem 0",
         textAlign: "left",
         cursor: "pointer",
         ...(isLast ? { borderBottom: "1px solid #838485" } : {}),
@@ -29,30 +28,28 @@ export const ProjectRow = ({ name, description, image, index, isLast }) => {
       className={`content${show ? `--${show}` : ""}`}
       // className="content--left"
     >
-      <div className="box flex">
-        <div>
+      <div className="box flex ">
+        <div className="description">
           <h1 className="font-man-large">{name}</h1>
           <p className="font-man-normal text-light mt-1">{description}</p>
         </div>
       </div>
       <div
         style={{
-          width: "14rem",
-          height: "14rem",
+          width: "15rem",
+          height: "15rem",
           borderRadius: "5%",
           overflow: "hidden",
+          background: `url(${image})`,
+          backgroundSize: "cover",
         }}
         className="example"
-      >
-        <img
-          style={{ width: "inherit", aspectRatio: "1/1" }}
-          src={image}
-          alt={name}
-        />
-      </div>
+      ></div>
       <div className="project-list-icon">
         <Icon name="NorthEast" classes="text-dark svg" />
       </div>
     </div>
   );
 };
+
+export default ProjectRow;
