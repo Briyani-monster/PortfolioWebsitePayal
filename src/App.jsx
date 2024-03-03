@@ -64,6 +64,7 @@ const SOCIAL_LINKS = [
 ];
 function App() {
   const ref = useRef();
+  const heroRef = useRef();
   // animate on scroll initialization
   useEffect(() => {
     AOS.init();
@@ -98,7 +99,8 @@ function App() {
       };
     }
   }, []);
-
+  console.log();
+  const height = heroRef?.current?.getBoundingClientRect()?.height + 200;
   return (
     <>
       <header id="intro">
@@ -111,6 +113,7 @@ function App() {
             </a>
           </section>
           <div
+            ref={heroRef}
             data-aos="fade-up"
             data-aos-duration="1000"
             className="flex flex-row  items-end "
@@ -125,7 +128,12 @@ function App() {
             </p>
           </div>
         </div>
-        <div class="gradient-bg title-name interactive flex flex-row justify-between">
+        <div
+          style={{
+            height: `${height}px`,
+          }}
+          class="gradient-bg title-name interactive flex flex-row justify-between"
+        >
           <svg xmlns="http://www.w3.org/2000/svg">
             <defs>
               <filter id="goo">
